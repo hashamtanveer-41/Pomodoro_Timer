@@ -8,7 +8,7 @@ import { formatClockTime } from '../utils/format';
  * Returns everything the UI needs — no timer logic lives in components.
  */
 export function usePomodoro() {
-  const [focusMins, setFocusMins]   = useState(25);
+  const [focusMins, setFocusMins]   = useState(45);
   const [breakMins, setBreakMins]   = useState(5);
   const [mode, setMode]             = useState('focus');   // 'focus' | 'break'
   const [status, setStatus]         = useState('idle');    // 'idle' | 'running' | 'paused'

@@ -61,6 +61,7 @@ export default function NavBar() {
       <nav style={styles.nav}>
         {/* Settings icon — left */}
         <motion.button
+            className=""
           style={styles.iconBtn}
           whileTap={{ scale: 0.88 }}
           whileHover={{ background: 'rgba(255,255,255,0.06)' }}

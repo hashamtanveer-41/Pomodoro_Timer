@@ -2,7 +2,9 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Clock } from 'lucide-react';
 
-const SPRING = { type: 'spring', damping: 28, stiffness: 300 };
+const SPRING = {
+  type: 'spring', damping: 28, stiffness: 300
+};
 
 const styles = {
   backdrop: {

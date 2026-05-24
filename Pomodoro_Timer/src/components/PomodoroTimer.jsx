@@ -35,16 +35,7 @@ export default function PomodoroTimer() {
       <motion.div
         animate={{ background: BG[mode] }}
         transition={{ duration: 1.2, ease: 'easeInOut' }}
-        style={{
-          flex: 1,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '0 20px 24px',
-          minHeight: 0,
-          position: 'relative',
-        }}
+        className="flex-1 flex flex-col items-center justify-center pt-0 pr-5 pb-6 relative min-h-0"
       >
         {/* Mode label */}
         <div style={{ marginBottom: 22 }}>
@@ -52,7 +43,9 @@ export default function PomodoroTimer() {
         </div>
 
         {/* Ring + digits */}
-        <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 36 }}>
+        <div
+            className="relative flex items-center justify-center mb-36"
+        >
           <TimerRing
             progress={progress}
             mode={mode}
@@ -76,7 +69,9 @@ export default function PomodoroTimer() {
         />
 
         {/* Duration summary */}
-        <div style={{ marginTop: 28 }}>
+        <div
+            style={{ marginTop: 28 }}
+        >
           <DurationInfo focusMins={focusMins} breakMins={breakMins} mode={mode} />
         </div>
       </motion.div>

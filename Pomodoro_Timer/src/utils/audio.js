@@ -33,6 +33,6 @@ export function playChime(type = 'focus') {
 
     setTimeout(() => ctx.close(), 2500);
   } catch (_) {
-    // Audio not available — fail silently
+
   }
 }
