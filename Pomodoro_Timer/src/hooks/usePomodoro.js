@@ -8,7 +8,7 @@ import { formatClockTime } from '../utils/format';
  * Returns everything the UI needs — no timer logic lives in components.
  */
 export function usePomodoro() {
-  const [focusMins, setFocusMins]   = useState(45);
+  const [focusMins, setFocusMins]   = useState(15);
   const [breakMins, setBreakMins]   = useState(5);
   const [mode, setMode]             = useState('focus');   // 'focus' | 'break'
   const [status, setStatus]         = useState('idle');    // 'idle' | 'running' | 'paused'
@@ -16,7 +16,6 @@ export function usePomodoro() {
   const [history, setHistory]       = useState(loadHistory);
   const [flash, setFlash]           = useState(false);
   const [completePulse, setCompletePulse] = useState(false);
-
   const intervalRef = useRef(null);
 
   // ── Derived state ──────────────────────────────────────────────────────────
@@ -89,7 +88,10 @@ export function usePomodoro() {
 
   // ── Public actions ─────────────────────────────────────────────────────────
   const startPauseResume = useCallback(() => {
-    if (isIdle)    { setSecondsLeft(mode === 'focus' ? focusMins * 60 : breakMins * 60); setStatus('running'); }
+    if (isIdle)    {
+      setSecondsLeft(mode === 'focus' ? focusMins * 60 : breakMins * 60);
+      setStatus('running');
+    }
     else if (isRunning) setStatus('paused');
     else if (isPaused)  setStatus('running');
   }, [isIdle, isRunning, isPaused, mode, focusMins, breakMins]);

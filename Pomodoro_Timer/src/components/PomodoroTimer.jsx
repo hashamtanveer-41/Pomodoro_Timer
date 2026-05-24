@@ -43,8 +43,7 @@ export default function PomodoroTimer() {
         </div>
 
         {/* Ring + digits */}
-        <div
-            className="relative flex items-center justify-center mb-36"
+        <div className="relative flex items-center justify-center mb-36"
         >
           <TimerRing
             progress={progress}

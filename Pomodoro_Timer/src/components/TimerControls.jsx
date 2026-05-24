@@ -3,11 +3,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Pause, SkipForward, RotateCcw } from 'lucide-react';
 
 function getPrimaryConfig(status, mode) {
-  if (status === 'idle' && mode === 'focus')  return { icon: <Play  size={17} fill="currentColor" />, label: 'Start to Focus' };
-  if (status === 'idle' && mode === 'break')  return { icon: <Play  size={17} fill="currentColor" />, label: 'Start Break'    };
-  if (status === 'running' && mode === 'break') return { icon: <SkipForward size={17} fill="currentColor" />, label: 'Skip Break' };
-  if (status === 'running')                   return { icon: <Pause size={17} fill="currentColor" />, label: 'Pause'          };
-  /* paused */                                return { icon: <Play  size={17} fill="currentColor" />, label: 'Resume'         };
+  if (status === 'idle' && mode === 'focus')
+    return { icon: <Play  size={17} fill="currentColor" />, label: 'Start to Focus' };
+  if (status === 'idle' && mode === 'break')
+    return { icon: <Play  size={17} fill="currentColor" />, label: 'Start Break'    };
+  if (status === 'running' && mode === 'break')
+    return { icon: <SkipForward size={17} fill="currentColor" />, label: 'Skip Break' };
+  if (status === 'running')
+    return { icon: <Pause size={17} fill="currentColor" />, label: 'Pause'          };
+
+  /* paused */
+  return { icon: <Play  size={17} fill="currentColor" />, label: 'Resume'         };
 }
 
 export default function TimerControls({ status, mode, onPrimaryAction, onReset }) {
