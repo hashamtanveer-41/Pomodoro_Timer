@@ -13,16 +13,8 @@ export default function ModeLabel({ mode, isPaused }) {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -5 }}
         transition={{ duration: 0.3 }}
-        style={{
-          fontFamily: 'var(--font-display)',
-          fontSize: 11,
-          letterSpacing: '0.32em',
-          fontWeight: 700,
-          textTransform: 'uppercase',
-          color: accentColor,
-          transition: 'color 0.8s',
-          userSelect: 'none',
-        }}
+        className="select-none font-[var(--font-display)] text-[25px] font-bold uppercase tracking-[0.32em] transition-colors duration-[800ms]"
+        style={{ color: accentColor }}
       >
         {label}
       </motion.div>

@@ -37,7 +37,7 @@ const styles = {
   },
   headerTitle: {
     fontFamily: 'var(--font-display)',
-    fontSize: 12,
+    fontSize: 16,
     letterSpacing: '0.2em',
     fontWeight: 700,
     textTransform: 'uppercase',
@@ -86,7 +86,7 @@ const styles = {
   },
   countLabel: {
     fontFamily: 'var(--font-display)',
-    fontSize: 10,
+    fontSize: 14,
     letterSpacing: '0.14em',
     textTransform: 'uppercase',
     color: 'var(--text-dim)',
@@ -107,13 +107,13 @@ const styles = {
   },
   entryDuration: {
     fontFamily: 'var(--font-mono)',
-    fontSize: 13,
+    fontSize: 15,
     color: 'var(--text-primary)',
     flex: 1,
   },
   entryLabel: {
     fontFamily: 'var(--font-display)',
-    fontSize: 10,
+    fontSize: 14,
     color: 'var(--text-dim)',
     letterSpacing: '0.1em',
     textTransform: 'uppercase',
@@ -121,7 +121,7 @@ const styles = {
   },
   entryTime: {
     fontFamily: 'var(--font-mono)',
-    fontSize: 11,
+    fontSize: 15,
     color: 'var(--text-muted)',
     flexShrink: 0,
   },
@@ -132,7 +132,7 @@ const styles = {
   },
   footerText: {
     fontFamily: 'var(--font-display)',
-    fontSize: 11,
+    fontSize: 17,
     color: 'var(--text-dim)',
     letterSpacing: '0.06em',
   },

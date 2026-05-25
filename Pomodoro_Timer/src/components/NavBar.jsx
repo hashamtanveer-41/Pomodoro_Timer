@@ -5,52 +5,6 @@ import { usePomodoroContext } from '../context/PomodoroContext';
 import HistoryOverlay from './HistoryOverlay';
 import SettingsOverlay from './SettingsOverlay';
 
-const styles = {
-  nav: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: '16px 24px',
-    borderBottom: '1px solid rgba(255,255,255,0.05)',
-    flexShrink: 0,
-    position: 'relative',
-    zIndex: 10,
-  },
-  title: {
-    fontFamily: 'var(--font-display)',
-    fontSize: 13,
-    letterSpacing: '0.28em',
-    fontWeight: 700,
-    textTransform: 'uppercase',
-    color: 'var(--text-muted)',
-    userSelect: 'none',
-  },
-  iconBtn: {
-    background: 'none',
-    border: 'none',
-    color: 'var(--text-muted)',
-    cursor: 'pointer',
-    padding: '8px',
-    borderRadius: '10px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    transition: 'background 0.18s, color 0.18s',
-    position: 'relative',
-    outline: 'none',
-  },
-  badge: {
-    position: 'absolute',
-    top: 6,
-    right: 6,
-    width: 7,
-    height: 7,
-    borderRadius: '50%',
-    background: 'var(--break-accent)',
-    border: '2px solid #080c14',
-  },
-};
-
 export default function NavBar() {
   const { history, isIdle, focusMins, breakMins, updateFocusMins, updateBreakMins } = usePomodoroContext();
   const [historyOpen,  setHistoryOpen]  = useState(false);
@@ -58,32 +12,33 @@ export default function NavBar() {
 
   return (
     <>
-      <nav style={styles.nav}>
+      <nav className="relative z-10 flex shrink-0 items-center justify-between border-b border-[rgba(255,255,255,0.05)] px-6 py-8">
         {/* Settings icon — left */}
         <motion.button
-            className=""
-          style={styles.iconBtn}
+          className="flex items-center justify-center rounded-[10px] bg-transparent p-2 text-[var(--text-muted)] transition-colors duration-200 hover:bg-[rgba(255,255,255,0.06)] focus:outline-none "
           whileTap={{ scale: 0.88 }}
-          whileHover={{ background: 'rgba(255,255,255,0.06)' }}
           onClick={() => setSettingsOpen(true)}
           title="Settings"
         >
-          <Settings size={19} strokeWidth={1.8} />
+          <Settings size={29} strokeWidth={1.8} />
         </motion.button>
 
         {/* Title — center */}
-        <span style={styles.title}>Pomodoro</span>
+        <span className="select-none font-[var(--font-display)] text-[20px] font-bold uppercase tracking-[0.28em] text-[var(--text-muted)]">
+          Pomodoro
+        </span>
 
         {/* History icon — right */}
         <motion.button
-          style={styles.iconBtn}
+          className="relative flex items-center justify-center rounded-[10px] bg-transparent p-2 text-[var(--text-muted)] transition-colors duration-200 hover:bg-[rgba(255,255,255,0.06)] focus:outline-none"
           whileTap={{ scale: 0.88 }}
-          whileHover={{ background: 'rgba(255,255,255,0.06)' }}
           onClick={() => setHistoryOpen(true)}
           title="Session history"
         >
-          <History size={19} strokeWidth={1.8} />
-          {history.length > 0 && <span style={styles.badge} />}
+          <History size={29} strokeWidth={1.8} />
+          {history.length > 0 && (
+            <span className="absolute right-[6px] top-[6px] h-[7px] w-[7px] rounded-full border-2 border-[#080c14] bg-[var(--break-accent)]" />
+          )}
         </motion.button>
       </nav>
 

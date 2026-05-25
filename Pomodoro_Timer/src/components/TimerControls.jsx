@@ -24,58 +24,18 @@ export default function TimerControls({ status, mode, onPrimaryAction, onReset }
   const btnBorder    = mode === 'focus' ? 'rgba(232,232,240,0.14)' : 'rgba(78,236,200,0.2)';
   const btnBgHover   = mode === 'focus' ? 'rgba(232,232,240,0.16)' : 'rgba(78,236,200,0.16)';
 
-  const styles = {
-    container: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      gap: 14,
-    },
-    primaryBtn: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: 10,
-      padding: '14px 38px',
-      borderRadius: 50,
-      border: `1px solid ${btnBorder}`,
-      background: btnBg,
-      color: accentColor,
-      fontFamily: 'var(--font-display)',
-      fontWeight: 600,
-      fontSize: 15,
-      letterSpacing: '0.04em',
-      cursor: 'pointer',
-      backdropFilter: 'blur(8px)',
-      WebkitBackdropFilter: 'blur(8px)',
-      boxShadow: `0 4px 24px rgba(0,0,0,0.28), 0 0 0 1px ${btnBorder}`,
-      minWidth: 'clamp(180px, 55vw, 220px)',
-      justifyContent: 'center',
-      transition: 'background 0.28s, box-shadow 0.28s, color 0.28s, border-color 0.28s',
-      outline: 'none',
-    },
-    resetBtn: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: 7,
-      background: 'none',
-      border: 'none',
-      color: 'var(--text-dim)',
-      cursor: 'pointer',
-      fontFamily: 'var(--font-display)',
-      fontSize: 12,
-      letterSpacing: '0.08em',
-      padding: '6px 14px',
-      borderRadius: 8,
-      transition: 'color 0.18s, background 0.18s',
-      outline: 'none',
-    },
-  };
-
   return (
-    <div style={styles.container}>
+    <div className="flex flex-col items-center gap-[14px]">
       {/* Primary CTA */}
       <motion.button
-        style={styles.primaryBtn}
+        className="flex min-w-[clamp(180px,_55vw,_220px)] items-center justify-center gap-[10px] rounded-[50px] border px-[38px] py-[14px] font-[var(--font-display)] text-[15px] font-semibold tracking-[0.04em] backdrop-blur-[8px] transition-[background,_box-shadow,_color,_border-color] duration-[280ms] focus:outline-none cursor-pointer"
+        style={{
+          background: btnBg,
+          borderColor: btnBorder,
+          color: accentColor,
+          boxShadow: `0 4px 24px rgba(0,0,0,0.28), 0 0 0 1px ${btnBorder}`,
+          WebkitBackdropFilter: 'blur(8px)',
+        }}
         whileTap={{ scale: 0.95 }}
         whileHover={{ background: btnBgHover }}
         onClick={onPrimaryAction}
@@ -86,7 +46,7 @@ export default function TimerControls({ status, mode, onPrimaryAction, onReset }
           initial={{ opacity: 0, y: 4 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.18 }}
-          style={{ display: 'flex', alignItems: 'center', gap: 10 }}
+          className="flex items-center gap-[10px]"
         >
           {icon}
           {label}
@@ -97,15 +57,13 @@ export default function TimerControls({ status, mode, onPrimaryAction, onReset }
       <AnimatePresence>
         {status !== 'idle' && (
           <motion.button
-            style={styles.resetBtn}
+            className="flex items-center gap-[7px] rounded-[8px] bg-transparent px-[14px] py-[6px] font-[var(--font-display)] text-[12px] tracking-[0.08em] text-[var(--text-dim)] transition-colors duration-[180ms] hover:bg-[rgba(255,255,255,0.04)] hover:text-[var(--text-muted)] focus:outline-none cursor-pointer"
             initial={{ opacity: 0, y: -6 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.2 }}
             whileTap={{ scale: 0.93 }}
             onClick={onReset}
-            onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--text-muted)'; e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-dim)'; e.currentTarget.style.background = 'none'; }}
           >
             <RotateCcw size={13} strokeWidth={2} />
             Reset
