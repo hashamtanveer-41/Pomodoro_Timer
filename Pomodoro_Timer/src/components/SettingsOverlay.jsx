@@ -7,16 +7,16 @@ const SPRING = { type: 'spring', damping: 28, stiffness: 300 };
 function Stepper({ label, value, onChange, isIdle }) {
   return (
     <div>
-      <span className="block font-display text-[10px] tracking-[0.18em] uppercase text-white/45 mb-3.5">
+      <span className="block font-display text-[17px] tracking-[0.18em] uppercase text-white mb-3.5">
         {label}
       </span>
       <div className="flex items-center gap-4">
         <motion.button
           whileTap={{ scale: 0.88 }}
-          onClick={() => isIdle && onChange(value - 1)}
-          className={`w-[38px] h-[38px] rounded-full border border-white/10 bg-white/[0.04]
+          onClick={() => value >1&&  isIdle && onChange(value - 1)}
+          className={`w-9.5 h-9.5 rounded-full border border-white/10 bg-white/4
                       text-white text-xl flex items-center justify-center transition-colors
-                      ${isIdle ? 'cursor-pointer hover:bg-white/[0.09]' : 'opacity-30 cursor-not-allowed'}`}
+                      ${isIdle && value >1 ? 'cursor-pointer hover:bg-white/9' : 'opacity-30 cursor-not-allowed'}`}
         >
           −
         </motion.button>
@@ -26,7 +26,7 @@ function Stepper({ label, value, onChange, isIdle }) {
           initial={{ opacity: 0.4, y: 4 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.15 }}
-          className="font-mono text-[34px] font-light text-white min-w-[52px] text-center"
+          className="font-mono text-[34px] font-light text-white min-w-13 text-center"
         >
           {value}
         </motion.span>
@@ -34,14 +34,14 @@ function Stepper({ label, value, onChange, isIdle }) {
         <motion.button
           whileTap={{ scale: 0.88 }}
           onClick={() => isIdle && onChange(value + 1)}
-          className={`w-[38px] h-[38px] rounded-full border border-white/10 bg-white/[0.04]
+          className={`w-9.5 h-9.5 rounded-full border border-white/10 bg-white/4
                       text-white text-xl flex items-center justify-center transition-colors
-                      ${isIdle ? 'cursor-pointer hover:bg-white/[0.09]' : 'opacity-30 cursor-not-allowed'}`}
+                      ${isIdle ? 'cursor-pointer hover:bg-white/9' : 'opacity-30 cursor-not-allowed'}`}
         >
           +
         </motion.button>
 
-        <span className="font-display text-[12px] text-white/20 tracking-wide">min</span>
+        <span className="font-display text-[18px] text-white/20 tracking-wide">min</span>
       </div>
     </div>
   );
@@ -73,15 +73,15 @@ export default function SettingsOverlay({ open, onClose, focusMins, breakMins, o
             transition={SPRING}
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-6 py-[22px] border-b border-white/5 shrink-0">
-              <span className="font-display text-[12px] tracking-[0.2em] font-bold uppercase text-white/45">
+            <div className="flex items-center justify-between px-6 py-5.5 border-b border-white/5 shrink-0">
+              <span className="font-display text-[20px] tracking-[0.2em] font-bold uppercase text-white/45">
                 Settings
               </span>
               <button
                 onClick={onClose}
-                className="p-1.5 rounded-lg text-white/45 hover:text-white hover:bg-white/[0.06] transition-colors flex"
+                className="p-1.5 rounded-lg text-white/45 hover:text-white hover:bg-white/6 transition-colors flex"
               >
-                <X size={17} strokeWidth={2.2} />
+                <X size={25} strokeWidth={2.2} />
               </button>
             </div>
 
@@ -102,8 +102,8 @@ export default function SettingsOverlay({ open, onClose, focusMins, breakMins, o
               />
 
               {!isIdle && (
-                <div className="mt-auto p-3.5 bg-white/[0.03] rounded-lg border border-white/5">
-                  <p className="font-display text-[12px] text-white/20 leading-relaxed">
+                <div className="mb-auto p-3.5 bg-rose-700 rounded-lg border border-white/5">
+                  <p className="font-display text-[13px] text-white leading-relaxed">
                     Reset the timer to change durations.
                   </p>
                 </div>

@@ -13,7 +13,7 @@ export default function ModeLabel({ mode, isPaused }) {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -5 }}
         transition={{ duration: 0.28 }}
-        className="font-display text-[11px] font-bold uppercase tracking-[0.32em] select-none"
+        className="font-display text-[29px] font-bold uppercase tracking-[0.32em] select-none"
         style={{ color, transition: 'color 0.8s' }}
       >
         {label}

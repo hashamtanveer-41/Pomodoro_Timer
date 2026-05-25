@@ -23,11 +23,11 @@ export default function NavBar() {
           title="Settings"
           className="p-2 rounded-xl text-white/45 flex items-center justify-center outline-none"
         >
-          <Settings size={19} strokeWidth={1.8} />
+          <Settings size={29} strokeWidth={1.8} />
         </motion.button>
 
         {/* Title — center */}
-        <span className="font-display text-[13px] tracking-[0.28em] font-bold uppercase text-white/45 select-none">
+        <span className="font-display text-[23px] tracking-[0.28em] font-bold uppercase text-white/45 select-none">
           Pomodoro
         </span>
 
@@ -39,7 +39,7 @@ export default function NavBar() {
           title="Session history"
           className="relative p-2 rounded-xl text-white/45 flex items-center justify-center outline-none"
         >
-          <History size={19} strokeWidth={1.8} />
+          <History size={29} strokeWidth={1.8} />
           {history.length > 0 && (
             <span className="absolute top-1.5 right-1.5 w-1.75 h-1.75 rounded-full bg-[#4eecc8] border-2 border-[#080c14]" />
           )}

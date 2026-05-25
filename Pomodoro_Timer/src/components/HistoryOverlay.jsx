@@ -24,7 +24,7 @@ export default function HistoryOverlay({ open, onClose, history }) {
           <motion.div
             className="fixed top-0 right-0 bottom-0 z-50 flex flex-col
                        w-[clamp(280px,85vw,320px)]
-                       bg-gradient-to-br from-[#0f1523] to-[#080d18]
+                       bg-linear-to-br from-[#0f1523] to-[#080d18]
                        border-l border-white/[0.07]"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
@@ -32,15 +32,15 @@ export default function HistoryOverlay({ open, onClose, history }) {
             transition={SPRING}
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-6 py-[22px] border-b border-white/5 shrink-0">
-              <span className="font-display text-[12px] tracking-[0.2em] font-bold uppercase text-white/45">
+            <div className="flex items-center justify-between px-6 py-5.5 border-b border-white/5 shrink-0">
+              <span className="font-display text-[16px] tracking-[0.2em] font-bold uppercase text-white/45">
                 Today's Sessions
               </span>
               <button
                 onClick={onClose}
                 className="p-1.5 rounded-lg text-white/45 hover:text-white hover:bg-white/[0.06] transition-colors flex"
               >
-                <X size={17} strokeWidth={2.2} />
+                <X size={23} strokeWidth={2.2} />
               </button>
             </div>
 
@@ -57,7 +57,7 @@ export default function HistoryOverlay({ open, onClose, history }) {
             ) : (
               <>
                 <div className="flex-1 overflow-y-auto">
-                  <p className="font-display text-[10px] tracking-[0.14em] uppercase text-white/20 px-6 pt-3 pb-3.5">
+                  <p className="font-display text-[15px] tracking-[0.14em] uppercase text-gray-200 px-6 pt-3 pb-3.5">
                     {history.length} session{history.length !== 1 ? 's' : ''} completed
                   </p>
                   <AnimatePresence initial={false}>
@@ -70,13 +70,13 @@ export default function HistoryOverlay({ open, onClose, history }) {
                         transition={{ delay: i * 0.04, duration: 0.28 }}
                       >
                         <span className="text-[#4eecc8] text-[11px] font-semibold shrink-0">✓</span>
-                        <span className="font-mono text-[13px] text-white flex-1">
+                        <span className="font-mono text-[15px] text-white flex-1">
                           {entry.duration}
-                          <span className="font-display text-[10px] tracking-widest uppercase text-white/20 ml-1.5">
+                          <span className="font-display text-[13px] tracking-widest uppercase text-white/20 ml-1.5">
                             focus
                           </span>
                         </span>
-                        <span className="font-mono text-[11px] text-white/45 shrink-0">
+                        <span className="font-mono text-[15px] text-white/45 shrink-0">
                           {entry.time}
                         </span>
                       </motion.div>
@@ -86,7 +86,7 @@ export default function HistoryOverlay({ open, onClose, history }) {
 
                 {/* Footer */}
                 <div className="px-6 py-3.5 border-t border-white/5 shrink-0">
-                  <span className="font-display text-[11px] text-white/20 tracking-wide">
+                  <span className="font-display text-[15px] text-gray-400 tracking-wide">
                     {totalMins} min focused today
                   </span>
                 </div>

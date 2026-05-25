@@ -21,12 +21,11 @@ export default function TimerControls({ status, mode, onPrimaryAction, onReset }
 
   return (
     <div className="flex flex-col items-center gap-3.5">
-      {/* Primary CTA */}
       <motion.button
         whileTap={{ scale: 0.95 }}
         whileHover={{ background: btnBgHover }}
         onClick={onPrimaryAction}
-        className="flex items-center gap-2.5 rounded-full font-display font-semibold text-[15px] tracking-wide outline-none backdrop-blur-sm"
+        className="flex items-center gap-2.5 rounded-full font-display font-semibold text-[17px] tracking-wide outline-none backdrop-blur-sm"
         style={{
           padding: '14px 38px',
           minWidth: 'clamp(180px, 55vw, 220px)',
