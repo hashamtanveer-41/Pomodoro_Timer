@@ -60,10 +60,10 @@ export default function TimerControls({ status, mode, onPrimaryAction, onReset }
             whileTap={{ scale: 0.93 }}
             onClick={onReset}
             className="flex items-center gap-1.5 bg-transparent border-none text-white/20
-                       font-display text-[12px] tracking-wide px-3.5 py-1.5 rounded-lg
-                       hover:text-white/45 hover:bg-white/[0.04] transition-colors outline-none cursor-pointer"
+                       font-display text-[19px] tracking-wide px-3.5 py-1.5 rounded-lg
+                       hover:text-white/45 hover:bg-white/4 transition-colors outline-none cursor-pointer"
           >
-            <RotateCcw size={13} strokeWidth={2} />
+            <RotateCcw size={19} strokeWidth={2} />
             Reset
           </motion.button>
         )}
